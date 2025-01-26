@@ -1,68 +1,42 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-    const list = [
-        {
-            header: "Quick Link",
-            title:[
-                {subTitle: "Home"},
-                {subTitle: "Who are we"},
-                {subTitle: "Our Philosophy"}
-            ]
-        },
-        {
-            header: "Industries",
-            title:[
-                {subTitle: "Retail & E-Commerce"},
-                {subTitle: "Information Technology"},
-                {subTitle: "Finance & Insurance"}
-            ]
-        },
-        {
-            header: "Services",
-            title:[
-                {subTitle: "Translation"},
-                {subTitle: "Proofreading & Editing"},
-                {subTitle: "Content Creation"}
-            ]
-        },
-        {
-            header: "Contact Us",
-            title:[
-                {subTitle: "+880 768 473 4978"},
-                {subTitle: "info@gmail.com"},
-                {subTitle: "info@.com"}
-            ]
-        },
-    ]
-
   return (
-    <footer className="bg-white dark:bg-gray-900">
-      <div className="container px-6 py-12 mx-auto">
-        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {
-                list.map((val, ind) => (
-                    <div key={ind}>
-                        <p className="font-semibold text-gray-800 dark:text-white">{val.header}</p>
-                        <div className="flex flex-col items-start mt-5 space-y-2">
-                            {
-                                val.title.map((val, ind) => (
-                                    <li className="text-black dark:text-white" key={ind}>{val.subTitle}</li>
-                                ))
-                            }
-                        </div>
-                    </div>
-                ))
-            }
-        </ul>
-        <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
-        <div className="flex flex-col items-center justify-between sm:flex-row">
-          <a href="#">
-            <img className="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt="Logo"/>
-          </a>
-          <p className="mt-4 text-sm text-gray-500 sm:mt-0 dark:text-gray-300">
-            © Copyright 2021. All Rights Reserved.
-          </p>
+    <footer className="bg-green-600 text-white">
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-xl font-semibold mb-4">Beneficiary App</h3>
+            <p className="text-green-100">Simplifying beneficiary management for a better tomorrow.</p>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/admin" className="hover:text-green-200 transition-colors">
+                  Admin
+                </Link>
+              </li>
+              <li>
+                <Link to="/department" className="hover:text-green-200 transition-colors">
+                  Department
+                </Link>
+              </li>
+              <li>
+                <Link to="/user-form" className="hover:text-green-200 transition-colors">
+                  User Form
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+            <p className="text-green-100">Email: info@beneficiaryapp.com</p>
+            <p className="text-green-100">Phone: (123) 456-7890</p>
+          </div>
+        </div>
+        <div className="mt-8 pt-8 border-t border-green-500 text-center text-green-100">
+          <p>&copy; {new Date().getFullYear()} Beneficiary App. All rights reserved.</p>
         </div>
       </div>
     </footer>

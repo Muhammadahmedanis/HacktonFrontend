@@ -4,7 +4,7 @@ import { Dashboard } from "./components/Dashboard.jsx";
 import BeneficiariesPage from "./routes/Benificiary.jsx";
 import Home from "./routes/Home.jsx"
 import Form from "./components/Form.jsx";
-import Department from "./routes/department.jsx";
+import Department from "./routes/Department.jsx";
 export default function App() {
   return (
     <Router>

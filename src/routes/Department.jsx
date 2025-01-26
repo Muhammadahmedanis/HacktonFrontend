@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DepartmentCard from '../components/DepartmentCard.jsx';
 import VerificationForm from '../components/VerificationForm.jsx';
 
+
 const departments = [
   { id: 1, name: 'Human Resources', color: 'bg-blue-500' },
   { id: 2, name: 'Finance', color: 'bg-green-500' },

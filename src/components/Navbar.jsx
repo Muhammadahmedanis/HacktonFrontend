@@ -1,37 +1,30 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { Menu } from "lucide-react";
+import logo from  "/logo.png"
 
-export default function Header() {
+const Navbar = ({ setIsOpen }) => {
+  
   return (
-    <>
-    <header className="bg-green-600 text-white p-4">
-      <nav className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold">
-          Beneficiary App
-        </Link>
-        <ul className="flex space-x-4">
-          <li>
-            <Link to="/dashboard" className="hover:underline">
-              Admin
-            </Link>
-          </li>
-          <li>
-            <Link to="/department" className="hover:underline">
-              Department
-            </Link>
-          </li>
-          <li>
-            <Link to="/form" className="hover:underline">
-              User Form
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <div className="bg-green-500 text-white py-20 px-4 text-center">
-      <h1 className="text-4xl font-bold mb-4">Welcome to the Beneficiary App</h1>
-      <p className="text-xl">Manage your beneficiaries with ease</p>
-    </div>
-    </>
+    <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-10">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={() => setIsOpen(true)}
+              className="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+              <Menu size={24} />
+            </button>
+            <span className="text-xl font-semibold text-gray-800 cursor-pointer"> Beneficiary Management </span>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="ml-4 flex items-center">
+              <img className="h-10 w-10" src={logo} alt="User avatar" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
-}
+};
+
+export default Navbar;

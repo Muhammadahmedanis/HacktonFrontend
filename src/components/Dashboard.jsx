@@ -1,5 +1,5 @@
 import React from "react";
-import { Sidebar } from "./Sider.jsx";
+// import { Sidebar } from ".";
 import { BeneficiaryCard } from "./BeneficiaryCard.jsx";
 import { ActionButtons } from "./ActionButton.jsx";
 import { BarChart3 } from "lucide-react"

@@ -1,20 +1,24 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Dashboard } from "./components/Dashboard.jsx";
-import BeneficiariesPage from "./routes/Benificiary.jsx";
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import Home from "./routes/Home.jsx"
-import Form from "./components/Form.jsx";
+import Form from "./routes/Form.jsx";
 import Department from "./routes/Department.jsx";
+import AdminDashboard from "./routes/AdminDshboard.jsx";
+import Layout from "./layout.jsx";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={ <Layout /> }>
+        <Route index element={<Home />} />
+        <Route path="/Receptionist" element={ <Form /> } />
+        <Route path="/DepartmentStaff" element={ <Department/> } />
+        <Route path="/Admin" element={<AdminDashboard />} />
+    </Route>
+  )
+)
+
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/beneficiaries" element={<BeneficiariesPage />} />
-        <Route path="/form" element={<Form />} />
-        <Route path="/department" element={ <Department/> } />
-      </Routes>
-    </Router>
+    <RouterProvider router={router} />
   );
 }

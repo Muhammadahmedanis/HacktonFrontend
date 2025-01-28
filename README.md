@@ -53,21 +53,21 @@ MERN Beneficiary Management System is a comprehensive web application designed t
 ```
 
  5. Set up Environment Variables:
-- Create a .env file based on .env.example and configure database connection details, JWT secret, etc.
+- Create a .env file based on env.example and configure database connection details, JWT secret, etc.
 
  6. Start the Application:
-```bash
   - Start the backend:
+```bash
   cd .\backend\
   npm run dev
 ```
-```bash
   - Start the frontend:
+```bash
   cd .\frontend\
   npm run dev
 ```
 
- 7. Access the Application: Open http://localhost:5173 in your browser.
+ 7. ** Access the Application: ** Open http://localhost:5173 in your browser.
 
 ## Contribution
 

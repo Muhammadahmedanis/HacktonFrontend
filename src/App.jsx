@@ -4,7 +4,7 @@ import Home from "./routes/Home.jsx"
 import Form from "./routes/Form.jsx";
 import Department from "./routes/Department.jsx";
 import AdminDashboard from "./routes/AdminDshboard.jsx";
-import Layout from "./layout.jsx";
+import Layout from "./Layout.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

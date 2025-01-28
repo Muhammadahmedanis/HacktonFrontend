@@ -26,7 +26,7 @@ MERN Beneficiary Management System is a comprehensive web application designed t
 
 ##### To run the project locally, follow these steps:
 
-  1. Clone the Frontend Repository:
+  1. #### Clone the Frontend Repository:
 ```bash
   git clone https://github.com/Muhammadahmedanis/HacktonFrontend.git
 ```
@@ -34,12 +34,12 @@ MERN Beneficiary Management System is a comprehensive web application designed t
   cd Frontend
 ```
 
- 2. install dependencies for Frontend
+ 2. #### Install dependencies for Frontend
 ```bash
   npm install
 ```
 
-  3. Clone the Backend Repository:
+  3. #### Clone the Backend Repository:
 ```bash
   git clone https://github.com/Muhammadahmedanis/HackthonBackend.git
 ```
@@ -47,12 +47,12 @@ MERN Beneficiary Management System is a comprehensive web application designed t
   cd Backend
 ```
 
- 4. install dependencies for Brontend
+ 4. #### Install dependencies for Brontend
 ```bash
   npm install
 ```
 
- 5. Set up Environment Variables:
+ 5. #### Set up Environment Variables:
 - Create a .env file based on env.example and configure database connection details, JWT secret, etc.
 
  6. Start the Application:
@@ -67,7 +67,7 @@ MERN Beneficiary Management System is a comprehensive web application designed t
   npm run dev
 ```
 
- 7. ** Access the Application: ** Open http://localhost:5173 in your browser.
+ 7. #### Access the Application: Open http://localhost:5173 in your browser.
 
 ## Contribution
 

@@ -25,7 +25,7 @@ const Home = ({ setCurrentPage }) => {
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100">
       {/* Hero Section */}
       <section
-        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center"
+        className="relative pt-24 py-10 px-4 sm:px-6 lg:px-8 bg-cover bg-center"
         style={{ backgroundImage: "url('/hero-background.jpg')" }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -45,7 +45,7 @@ const Home = ({ setCurrentPage }) => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 ">
             <div className="border-2 border-gray-300 rounded shadow-lg">

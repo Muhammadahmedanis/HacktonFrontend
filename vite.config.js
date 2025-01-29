@@ -5,7 +5,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:4000'
+      '/api': 'https://hackthonbackend-production.up.railway.app'
+      // http://localhost:4000
     },
   }
 })

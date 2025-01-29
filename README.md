@@ -20,6 +20,10 @@ MERN Beneficiary Management System is a comprehensive web application designed t
 - Database: MongoDB
 - Backend: Node.js, Express.js
 
+## Live Demo
+
+[Visit the Site](https://hackton-frontend-sandy.vercel.app)
+
 ## Repository
 
 #### [GitHub Repository](https://github.com/Muhammadahmedanis/HacktonFrontend)

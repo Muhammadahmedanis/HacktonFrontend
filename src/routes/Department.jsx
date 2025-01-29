@@ -4,6 +4,7 @@ import axios from "axios";
 import moment from "moment";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { axiosInstance } from "../api/axios";
 
 const Department = () => {
   const [tokenId, setTokenId] = useState("");
@@ -25,7 +26,7 @@ const Department = () => {
   const handleScanToken = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`/api/v1/user/${tokenId}`);
+      const response = await axiosInstance.post(`/api/v1/user/${tokenId}`);
       console.log(response.data);
       localStorage.setItem("data", JSON.stringify(response.data.user));
       console.log(response.data.user);
@@ -53,7 +54,7 @@ const Department = () => {
       if (result.isConfirmed) {
         let tokenId = beneficiaryData.tokenId;
         try {
-          const response = await axios.patch("/api/v1/user/updateStatus", { tokenId, status });
+          const response = await axiosInstance.patch("/api/v1/user/updateStatus", { tokenId, status });
           setBeneficiaryData({ ...beneficiaryData, status: response.data.message.status });
           toast.success(response.data.message);
           localStorage.removeItem("data"); 

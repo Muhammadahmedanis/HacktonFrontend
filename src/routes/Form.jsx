@@ -3,6 +3,7 @@ import { UserPlus } from "lucide-react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import QRCode from "../helper/QRCode";
+import { axiosInstance } from "../api/axios";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -57,7 +58,7 @@ const Form = () => {
       return;
     }
     // console.log("Form submitted:", formData);
-    const response = await axios.post("/api/v1/user/applicant", formData);
+    const response = await axiosInstance.post("/api/v1/user/applicant", formData);
     try {
       console.log(response.data);
       toast.success(response.data.message);

@@ -6,12 +6,13 @@ import { Outlet } from 'react-router-dom';
 
 function Layout() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     
     return (
       <>
         <Navbar setIsOpen={setIsOpen} />
-        <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
-        <Outlet />
+        <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+        <Outlet context={{ isModalOpen, setIsModalOpen }} />
         <Footer />
       </>
   )

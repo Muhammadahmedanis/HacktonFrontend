@@ -3,8 +3,10 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { SiSimpleanalytics } from "react-icons/si";
 import { HiOutlineBuildingOffice } from "react-icons/hi2";
 import { TbReportAnalytics } from "react-icons/tb";
+import Modal from "../components/Modal";
 
-const Home = ({ setCurrentPage }) => {
+const Home = () => {
+  
   // Sample data for the pie chart
   const data = [
     { name: "Financial Aid", value: 400 },
@@ -39,7 +41,7 @@ const Home = ({ setCurrentPage }) => {
           <button
             size="lg"
             className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg">
-            <Link to='/Receptionist'>Get Started</Link> 
+           Get Started
           </button>
         </div>
       </section>
@@ -75,7 +77,9 @@ const Home = ({ setCurrentPage }) => {
           </div>
         </div>
       </section>
-
+      <div>
+       <Modal />
+      </div>
       {/* Features Section */}
       <section className="py-16 bg-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

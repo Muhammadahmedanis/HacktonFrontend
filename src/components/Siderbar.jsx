@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { X, Home, UserPlus, Building, BarChart3 } from "lucide-react";
-import { Link } from "react-router-dom";
 
-const Sidebar = ({isOpen, setIsOpen}) => {
+const Sidebar = ({isOpen, setIsOpen, setIsModalOpen}) => {
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+    setIsOpen(false)
+  };
+  
+
   const menuItems = [
     { icon: Home, label: "Home", slug: "/" },
     { icon: UserPlus, label: "Registration", slug: "/Receptionist" },
@@ -32,17 +37,12 @@ const Sidebar = ({isOpen, setIsOpen}) => {
         <ul className="space-y-2">
           {menuItems.map((item) => (
             <li key={item.slug}>
-              <Link to={item.slug}>
               <button
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-                className="flex items-center w-full p-2 rounded-lg hover:bg-blue-100 transition-colors duration-200"
-              >
+                onClick={toggleModal}
+                className="flex items-center w-full p-2 rounded-lg hover:bg-blue-100 transition-colors duration-200">
                 <item.icon size={20} className="mr-3" />
                 {item.label}
               </button>
-                </Link>
             </li>
           ))}
         </ul>

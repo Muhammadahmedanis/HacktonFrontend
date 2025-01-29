@@ -1,4 +1,5 @@
-import axios from "axios"; 
+// import axios from "axios";
+import { axiosInstance } from "../api/axios.js";
 import React, { useState, useEffect } from "react";
 import DepartmentActivity from "../components/Table";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell,} from "recharts";
@@ -20,8 +21,8 @@ const AdminDashboard = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("/api/v1/user/beneficiariesByPurpose");
-        const response2 = await axios.get("/api/v1/user/getNewUsers");
+        const response = await axiosInstance.get("/api/v1/user/beneficiariesByPurpose");
+        const response2 = await axiosInstance.get("/api/v1/user/getNewUsers");
 
         setTotalBeneficier(response.data?.data?.totalCount);
         setTotalNewUsers(response2.data?.visitUsersData.usersFirstVisits.length);

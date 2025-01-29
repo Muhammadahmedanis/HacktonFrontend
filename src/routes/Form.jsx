@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { UserPlus } from "lucide-react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import QRCode from "../helper/QRCode";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,8 @@ const Form = () => {
   });
   
   const [errors, setErrors] = useState({});
+  
+  const[show, setShow] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -46,7 +49,6 @@ const Form = () => {
     return errors;
   };
 
-
   const handleSubmit = async(e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -54,16 +56,18 @@ const Form = () => {
       setErrors(validationErrors);
       return;
     }
-    console.log("Form submitted:", formData);
+    // console.log("Form submitted:", formData);
     const response = await axios.post("/api/v1/user/applicant", formData);
     try {
       console.log(response.data);
       toast.success(response.data.message);
+      setShow(true)
       // Reset form fields
     } catch (error) {
-      toast.error(error.response?.data.message)      
+      toast.error(error.response?.data.message);      
+      setFormData({ cnic: "", userName: "", phoneNumber: "", address: "", purpose: "" });
     }
-    setFormData({ cnic: "", userName: "", phoneNumber: "", address: "", purpose: "" });
+    
   };
 
   return (
@@ -75,9 +79,8 @@ const Form = () => {
           Beneficiary Registration
         </h1>
       </div>
-
       {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 pb-6">
         {Object.entries(formData).map(([key, value]) => (
           <div key={key}>
             <label
@@ -125,6 +128,7 @@ const Form = () => {
           Register and Generate Token
         </button>
       </form>
+      {show && <QRCode data={formData} setShow={setShow} setFormData={setFormData} /> }
     </div>
   );
 };

@@ -1,20 +1,10 @@
-import React, { useState } from "react";
-import {
-  Search,
-  User,
-  CheckCircle,
-  XCircle,
-  Calendar,
-  Phone,
-  MapPin,
-  FileText,
-  AlertCircle,
-} from "lucide-react";
-import Swal from "sweetalert2";
+import React, { useState, useEffect } from "react";
+import { Search, User, CheckCircle, Calendar, Phone, MapPin, FileText, AlertCircle } from "lucide-react";
 import axios from "axios";
-import { toast } from "react-toastify";
 import moment from "moment";
-import { useEffect } from "react";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+
 const Department = () => {
   const [tokenId, setTokenId] = useState("");
   const [beneficiaryData, setBeneficiaryData] = useState({
@@ -59,7 +49,7 @@ const Department = () => {
         confirmButton: 'bg-green-500 text-white hover:bg-green-600 focus:ring-2 focus:ring-green-400 font-semibold',
         cancelButton: 'bg-red-500 text-white hover:bg-red-600 focus:ring-2 focus:ring-red-400 font-semibold'
       }
-    }).then(async (result) => { // Ensure result is passed here
+    }).then(async (result) => { 
       if (result.isConfirmed) {
         let tokenId = beneficiaryData.tokenId;
         try {
@@ -67,6 +57,7 @@ const Department = () => {
           setBeneficiaryData({ ...beneficiaryData, status: response.data.message.status });
           toast.success(response.data.message);
           localStorage.removeItem("data"); 
+          setBeneficiaryData({userName: "",cnic: "",phoneNumber: "",address: "",purpose: "",status: "",visit: "",lastVisit: ""});
         } catch (error) {
           toast.error(error.response?.data.message || "Something went wrong");
         }
@@ -98,8 +89,7 @@ const Department = () => {
           />
           <button
             type="submit"
-            className="bg-blue-500 text-white px-6 py-3 rounded-r-lg hover:bg-blue-600 transition duration-300 font-semibold"
-          >
+            className="bg-blue-500 text-white px-6 py-3 rounded-r-lg hover:bg-blue-600 transition duration-300 font-semibold">
             Scan Token
           </button>
         </div>
@@ -142,7 +132,7 @@ const Department = () => {
                 <InfoCard
                   key={key}
                   label={labels[key] || key}
-                  value={key === "lastVisit" 
+                  value={key === "lastVisit"  || key === "visit"
                     ? Array.isArray(value) 
                       ? value.map((val) => formatDate(val))  // Apply formatDate to each item if it's an array
                       : formatDate(value)  // Apply formatDate to the single value if it's not an array
@@ -153,23 +143,19 @@ const Department = () => {
           </div>
 
           {/* Update Status Section */}
-          <div className="mt-8 text-center">
+          { localStorage.getItem("data") && <div className="mt-8 text-center">
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">Update Status</h3>
             <div className="space-x-4">
-              <button
-                onClick={handleUpdateStatus}
-                className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition duration-300 font-semibold"
-              >
+              <button onClick={handleUpdateStatus}
+                className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition duration-300 font-semibold">
                 Completed
               </button>
-              <button
-                onClick={handleUpdateStatus}
-                className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition duration-300 font-semibold"
-              >
+              <button onClick={handleUpdateStatus}
+                className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition duration-300 font-semibold">
                 Rejected
               </button>
             </div>
-          </div>
+          </div>}
         </div>
       )}
     </div>
@@ -188,7 +174,7 @@ const InfoCard = ({ label, value, icon: Icon }) => (
           {
             value.map((item, ind) => (
             <option key={ind} value={item}>
-               {label === "Purpose" ? item : formatDate(item)}
+               {label === "Purpose" || label === "Status" ? item : formatDate(item)}
             </option>
             ))
           }

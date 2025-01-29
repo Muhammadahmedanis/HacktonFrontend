@@ -6,7 +6,7 @@ import { FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-green-600 text-white relative">
+    <footer className="bg-green-400 text-white relative">
     <div
       className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
       style={{ backgroundImage: "url('/beneficiary-help.jpg')" }}

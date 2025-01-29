@@ -1,5 +1,7 @@
 
 # Beneficiary Management System
+![Baneficiary Management System Mockup](/public/mokeup.png)
+
 MERN Beneficiary Management System is a comprehensive web application designed to streamline the process of handling beneficiary requests, token management, and status tracking. It involves four main stakeholders: User, Receptionist, Department Staff, and Admin.
 
 ## Features
